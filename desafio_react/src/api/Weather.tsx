@@ -2,16 +2,15 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 const Weather = () => {
-  const [state, setState] = useState({ city_name: '', date: '', condition_slug: '', description: '' });
+  const [state, setState] = useState({ city_name: '', date: '', description: '' });
 
   useEffect(() => {
     axios.get('https://aps-weather-app.herokuapp.com/weather?cityName=Belo Horizonte')
     .then((res) => {
-      const { city_name, date, condition_slug, description } = res.data;
+      const { city_name, date, description } = res.data;
       setState({
         city_name,
         date,
-        condition_slug,
         description,
       });
     })
